@@ -27,4 +27,14 @@ public class LottoTicketTest {
         IntStream.range(0, numbers.size() - 1)
                 .allMatch(i -> numbers.get(i) <= numbers.get(i + 1));
     }
+
+    @Test
+    void testGenerateLotto() {
+        LottoTicket testLotto = new LottoTicket();
+        int price = 7000;
+        List<Lotto> testLottoTicket = testLotto.generateLotto(price);
+
+        // 로또 발행 개수 확인
+        assertEquals(price / 1000, testLottoTicket.size());
+    }
 }
